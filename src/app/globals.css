@@ -163,12 +163,19 @@
     #38bdf8
   );
 }
-  ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.45 0.03 270);
-  }
+ 
 
   img {
     user-select: none;
     -webkit-user-drag: none;
   }
+}
+
+body {
+  cursor: none;
+}
+
+a,
+button {
+  cursor: none;
 }
