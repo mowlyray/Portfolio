@@ -55,8 +55,8 @@ export default function AnimatedBorderButton({
 
     backdrop-blur-xl
 
-    px-8
-    py-2
+    px-10
+    py-1.5
 
     font-semibold
     text-white
