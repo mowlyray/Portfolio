@@ -1,11 +1,12 @@
-import AnimatedBorderButton from "@/components/common/AnimatedBorderButton";
+import AuroraBackground from "@/components/ui/AuroraBackground";
+import MouseGlow from "@/components/effects/MouseGlow";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <AnimatedBorderButton>
-        Hire Me
-      </AnimatedBorderButton>
-    </main>
+    <AuroraBackground>
+      <MouseGlow />
+
+      <main className="min-h-screen"></main>
+    </AuroraBackground>
   );
 }
