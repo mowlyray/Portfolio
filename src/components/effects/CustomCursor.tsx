@@ -51,7 +51,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer Ring */}
+      {/* Cursor Ring */}
       <motion.div
         style={{
           x,
@@ -60,30 +60,41 @@ export default function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          width: hovering ? 60 : 36,
-          height: hovering ? 60 : 36,
+          width: hovering ? 50 : 28,
+          height: hovering ? 50 : 28,
+          
         }}
         transition={{
           type: "spring",
           stiffness: 350,
           damping: 20,
         }}
-        className="
-        pointer-events-none
-        fixed
-        left-0
-        top-0
-        z-[9999]
-        rounded-full
-        border
-        border-sky-400/80
-        bg-sky-400/10
-        backdrop-blur-md
-        shadow-[0_0_30px_rgba(56,189,248,.45)]
-        "
+        className={`
+          pointer-events-none
+          fixed
+          left-0
+          top-0
+          z-[9999]
+          rounded-full
+          border-2
+          bg-transparent
+          transition-all
+          duration-300
+          ${
+            hovering
+              ? `
+                border-white
+                shadow-[0_0_30px_rgba(255,255,255,.85)]
+              `
+              : `
+                border-sky-400
+                shadow-[0_0_18px_rgba(56,189,248,.55)]
+              `
+          }
+        `}
       />
 
-      {/* Inner Dot */}
+      {/* Center Dot */}
       <motion.div
         style={{
           x,
@@ -91,17 +102,24 @@ export default function CustomCursor() {
           translateX: "-50%",
           translateY: "-50%",
         }}
+        animate={{
+          scale: hovering ? 1.3 : 1,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+        }}
         className="
-        pointer-events-none
-        fixed
-        left-0
-        top-0
-        z-[10000]
-        h-2.5
-        w-2.5
-        rounded-full
-        bg-sky-400
-        shadow-[0_0_18px_rgba(56,189,248,.9)]
+          pointer-events-none
+          fixed
+          left-0
+          top-0
+          z-[10000]
+          h-2.5
+          w-2.5
+          rounded-full
+          bg-sky-400
+          shadow-[0_0_18px_rgba(56,189,248,.9)]
         "
       />
     </>

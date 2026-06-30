@@ -5,33 +5,102 @@ import { motion } from "framer-motion";
 
 export default function Logo() {
   return (
-    <Link href="/" aria-label="Go to Home" className="inline-block">
+    <Link href="/" className="group inline-flex items-center">
       <motion.div
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.25 }}
-        className="group flex items-center"
+        whileHover={{
+          rotate: -6,
+          scale: 1.05,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 12,
+        }}
+        className="
+        relative
+        flex
+        items-center
+        gap-3
+        "
       >
-        <span className="text-xl font-extrabold tracking-tight">
-          <motion.span
-            className="text-violet-500 inline-block"
-            whileHover={{ rotate: -12 }}
-            transition={{ duration: 0.25 }}
-          >
-            &lt;
-          </motion.span>
+        {/* Glow */}
+        <div
+          className="
+          absolute
+          -inset-2
+          rounded-full
+          bg-sky-400/20
+          blur-xl
+          opacity-0
+          transition-opacity
+          duration-500
+          group-hover:opacity-100
+          "
+        />
 
-          <span className="bg-gradient-to-r from-white via-white to-slate-300 bg-clip-text text-transparent">
+        {/* Logo */}
+        <div
+          className="
+          relative
+          flex
+          h-12
+          w-12
+          items-center
+          justify-center
+          rounded-2xl
+
+          border
+          border-white/10
+
+          bg-white/5
+
+          backdrop-blur-xl
+
+          shadow-[0_0_30px_rgba(56,189,248,.18)]
+          "
+        >
+          <span
+            className="
+            text-xl
+            font-black
+
+            bg-gradient-to-r
+            from-sky-300
+            via-cyan-300
+            to-sky-500
+
+            bg-clip-text
+            text-transparent
+            "
+          >
+            M
+          </span>
+        </div>
+
+        {/* Text */}
+        <div className="flex flex-col">
+          <span
+            className="
+            text-lg
+            font-bold
+            tracking-wide
+            text-white
+            "
+          >
             Mowly
           </span>
 
-          <motion.span
-            className="text-cyan-400 inline-block"
-            whileHover={{ rotate: 12 }}
-            transition={{ duration: 0.25 }}
+          <span
+            className="
+            text-xs
+            tracking-[0.25em]
+            uppercase
+            text-sky-300/70
+            "
           >
-            /&gt;
-          </motion.span>
-        </span>
+            Developer
+          </span>
+        </div>
       </motion.div>
     </Link>
   );

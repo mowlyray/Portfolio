@@ -5,6 +5,11 @@ import "./globals.css";
 
 import { Providers } from "@/components/providers";
 
+import Navbar from "@/components/layout/Navbar";
+import AuroraBackground from "@/components/ui/AuroraBackground";
+import MouseGlow from "@/components/effects/MouseGlow";
+import CustomCursor from "@/components/effects/CustomCursor";
+
 const geistSans = Geist({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -53,7 +58,17 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          <AuroraBackground>
+            <MouseGlow />
+            <CustomCursor />
+            <Navbar />
+
+            <main className="relative z-10">
+              {children}
+            </main>
+          </AuroraBackground>
+        </Providers>
       </body>
     </html>
   );
