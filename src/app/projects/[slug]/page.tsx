@@ -69,11 +69,11 @@ export default async function ProjectDetailsPage({
         <div className="absolute bottom-0 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-sky-500/10 blur-[150px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-6xl px-6">
 
         <ProjectBanner project={project} />
 
-        <div className="mx-auto mt-20 max-w-6xl space-y-20">
+        <div className="mx-auto mt-20 max-w-5xl space-y-20">
 
           <ProjectDescription project={project} />
 

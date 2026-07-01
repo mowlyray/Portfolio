@@ -11,6 +11,7 @@ import {
 import {
   SiNextdotjs,
   SiTypescript,
+  SiJavascript,
   SiTailwindcss,
   SiExpress,
   SiMongodb,
@@ -18,6 +19,7 @@ import {
   SiJsonwebtokens,
   SiStripe,
   SiFramer,
+  SiFirebase,
 } from "react-icons/si";
 
 interface ProjectTechStackProps {
@@ -40,6 +42,8 @@ export default function ProjectTechStack({
   "Socket.io": SiSocketdotio,
   Stripe: SiStripe,
   "Framer Motion": SiFramer,
+  "JavaScript": SiJavascript,
+  "Firebase": SiFirebase,
 } as const;
 
 

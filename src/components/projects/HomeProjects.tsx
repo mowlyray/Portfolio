@@ -10,12 +10,12 @@ export default function HomeProjects() {
       id="projects"
       className="relative py-28"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <ProjectSectionHeader />
 
         <ProjectGrid
           projects={projects.slice(0, 6)}
-          showViewAllButton
+        //   showViewAllButton
         />
       </div>
     </section>

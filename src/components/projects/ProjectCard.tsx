@@ -37,7 +37,7 @@ export default function ProjectCard({
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+    
 
         {project.featured && (
           <div className="absolute left-4 top-4 rounded-full border border-cyan-400/30 bg-cyan-500/15 px-3 py-1 text-xs font-medium tracking-wide text-cyan-300 backdrop-blur">
@@ -48,7 +48,7 @@ export default function ProjectCard({
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-2xl font-bold text-white transition-colors duration-300 group-hover:text-cyan-300">
+        <h3 className="text-2xl font-bold text-cyan-200 transition-colors duration-300 group-hover:text-cyan-300">
           {project.title}
         </h3>
 
