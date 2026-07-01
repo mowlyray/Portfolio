@@ -169,7 +169,7 @@ export default function AuroraBackground({
         absolute
         inset-0
         opacity-[0.03]
-        bg-[url('/noise.png')]
+        
         mix-blend-soft-light
         "
       />
