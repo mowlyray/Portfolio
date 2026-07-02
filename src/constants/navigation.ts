@@ -10,21 +10,18 @@ export const navigationLinks: NavigationItem[] = [
     href: "/about",
   },
   {
-    label: "Projects",
-    href: "/projects",
-  },
-  {
     label: "Skills",
     href: "/skills",
+  },
+  {
+    label: "Projects",
+    href: "/projects",
   },
   {
     label: "Certificates",
     href: "/certificates",
   },
-  {
-    label: "Resume",
-    href: "/resume",
-  },
+
   {
     label: "Contact",
     href: "/contact",
