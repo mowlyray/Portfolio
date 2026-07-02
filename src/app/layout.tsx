@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 import { Toaster } from "react-hot-toast";
@@ -61,12 +61,13 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <Providers>
+          <ScrollToTop />
           <AuroraBackground>
             <MouseGlow />
             <CustomCursor />
             <Navbar />
 
-            <main className="relative z-10">{children}</main>
+            <main className="relative z-10 ">{children}</main>
 
             {/* Toast Notifications */}
             <Toaster
