@@ -8,7 +8,7 @@ import HeroButtons from "./HeroButtons";
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center pt-28 md:pt-32">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center px-6 text-center">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center px-6 mb-8 text-center">
 
         {/* Greeting */}
         <motion.span

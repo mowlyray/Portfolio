@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { navigationLinks } from "@/constants/navigation";
 
@@ -16,7 +17,7 @@ export default function MobileMenu() {
       <button
         onClick={() => setOpen(!open)}
         className="
-          md:hidden
+          lg:hidden
           relative
           z-[100]
           flex
@@ -59,7 +60,7 @@ export default function MobileMenu() {
       <AnimatePresence>
         {open && (
           <>
-            {/* Background Blur */}
+            {/* Background */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -74,20 +75,12 @@ export default function MobileMenu() {
               "
             />
 
-            {/* Menu */}
+            {/* Sidebar */}
             <motion.div
-              initial={{
-                x: "100%",
-              }}
-              animate={{
-                x: 0,
-              }}
-              exit={{
-                x: "100%",
-              }}
-              transition={{
-                duration: 0.35,
-              }}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.35 }}
               className="
                 fixed
                 right-0
@@ -104,6 +97,7 @@ export default function MobileMenu() {
                 p-8
               "
             >
+              {/* Navigation */}
               <div className="mt-20 flex flex-col gap-5">
                 {navigationLinks.map((item, index) => (
                   <motion.div
@@ -124,21 +118,72 @@ export default function MobileMenu() {
                       href={item.href}
                       onClick={() => setOpen(false)}
                       className="
-  block
-  text-base
-  font-medium
-  tracking-wide
-  text-slate-300
-  transition-all
-  duration-300
-  hover:translate-x-2
-  hover:text-sky-300
-"
+                        block
+                        text-base
+                        font-medium
+                        tracking-wide
+                        text-slate-300
+                        transition-all
+                        duration-300
+                        hover:translate-x-2
+                        hover:text-sky-300
+                      "
                     >
                       {item.label}
                     </Link>
                   </motion.div>
                 ))}
+              </div>
+
+              {/* Social Icons */}
+              <div className="mt-auto flex items-center gap-4 pt-10">
+
+                <Link
+                  href="https://github.com/YOUR_GITHUB_USERNAME"
+                  target="_blank"
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    text-slate-300
+                    transition-all
+                    hover:border-cyan-400/40
+                    hover:bg-cyan-500/10
+                    hover:text-cyan-300
+                  "
+                >
+                  <FaGithub size={18} />
+                </Link>
+
+                <Link
+                  href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME"
+                  target="_blank"
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    text-slate-300
+                    transition-all
+                    hover:border-cyan-400/40
+                    hover:bg-cyan-500/10
+                    hover:text-cyan-300
+                  "
+                >
+                  <FaLinkedin size={18} />
+                </Link>
+
               </div>
             </motion.div>
           </>
