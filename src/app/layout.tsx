@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 
+import { Toaster } from "react-hot-toast";
+
 import { Providers } from "@/components/providers";
 
 import Navbar from "@/components/layout/Navbar";
@@ -64,9 +66,23 @@ export default function RootLayout({
             <CustomCursor />
             <Navbar />
 
-            <main className="relative z-10">
-              {children}
-            </main>
+            <main className="relative z-10">{children}</main>
+
+            {/* Toast Notifications */}
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+
+                style: {
+                  background: "rgba(255,255,255,.08)",
+                  color: "#fff",
+                  backdropFilter: "blur(18px)",
+                  border: "1px solid rgba(255,255,255,.15)",
+                  borderRadius: "16px",
+                },
+              }}
+            />
           </AuroraBackground>
         </Providers>
       </body>

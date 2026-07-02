@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { SendHorizontal } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
@@ -12,36 +13,51 @@ export default function ContactForm() {
   ) {
     e.preventDefault();
 
-    setLoading(true);
+    const form = e.currentTarget;
 
-    // 👉 এখানে পরে EmailJS Integration হবে
+    const formData = new FormData(form);
 
-    setTimeout(() => {
-      alert("EmailJS integration will be added here.");
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
+    try {
+      setLoading(true);
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Something went wrong.");
+      }
+
+      toast.success("Message sent successfully!");
+
+      form.reset();
+    } catch (error: any) {
+      toast.error(error.message || "Failed to send message.");
+    } finally {
       setLoading(false);
-
-      e.currentTarget.reset();
-    }, 1000);
+    }
   }
 
   return (
     <motion.form
       onSubmit={handleSubmit}
-      initial={{
-        opacity: 0,
-        x: 40,
-      }}
-      whileInView={{
-        opacity: 1,
-        x: 0,
-      }}
-      viewport={{
-        once: true,
-      }}
-      transition={{
-        duration: .6,
-      }}
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
       className="
         rounded-[32px]
         border
@@ -77,12 +93,11 @@ export default function ContactForm() {
       </h2>
 
       <p className="mt-4 leading-8 text-slate-400">
-        Have a question or an opportunity? Fill out the form
-        below and I'll get back to you as soon as possible.
+        Have a question or an opportunity? Fill out the form below and I'll
+        get back to you as soon as possible.
       </p>
 
       {/* Name */}
-
       <div className="mt-10">
         <label className="mb-2 block text-sm text-slate-300">
           Full Name
@@ -111,7 +126,6 @@ export default function ContactForm() {
       </div>
 
       {/* Email */}
-
       <div className="mt-6">
         <label className="mb-2 block text-sm text-slate-300">
           Email Address
@@ -140,7 +154,6 @@ export default function ContactForm() {
       </div>
 
       {/* Subject */}
-
       <div className="mt-6">
         <label className="mb-2 block text-sm text-slate-300">
           Subject
@@ -169,7 +182,6 @@ export default function ContactForm() {
       </div>
 
       {/* Message */}
-
       <div className="mt-6">
         <label className="mb-2 block text-sm text-slate-300">
           Message
@@ -199,8 +211,8 @@ export default function ContactForm() {
       </div>
 
       {/* Button */}
-
       <button
+        type="submit"
         disabled={loading}
         className="
           mt-8
