@@ -30,7 +30,9 @@ export default function HeroButtons() {
 
       {/* Resume */}
       <Link
-        href="/resume"
+        href="/resume/Resume.pdf"
+        download
+        target="_blank"
         className="text-white px-8 py-1.5 border-glow rounded-full"
       >
         Download Resume
