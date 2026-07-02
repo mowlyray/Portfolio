@@ -11,6 +11,8 @@ import Navbar from "@/components/layout/Navbar";
 import AuroraBackground from "@/components/ui/AuroraBackground";
 import MouseGlow from "@/components/effects/MouseGlow";
 import CustomCursor from "@/components/effects/CustomCursor";
+import Footer from "@/components/footer/Footer";
+
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -68,6 +70,8 @@ export default function RootLayout({
             <Navbar />
 
             <main className="relative z-10 ">{children}</main>
+
+            <Footer />
 
             {/* Toast Notifications */}
             <Toaster
