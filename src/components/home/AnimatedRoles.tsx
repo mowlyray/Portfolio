@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 const roles = [
   "MERN Stack Developer",
-  "Next.js Developer",
   "Frontend Developer",
   "Backend Developer",
   "Full Stack Developer",
-  "Software Engineer",
+  "Next.js Developer",
+  "Software Developer",
 ];
 
 export default function AnimatedRoles() {

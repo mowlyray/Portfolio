@@ -50,7 +50,7 @@ export default function Footer() {
           mx-auto
           max-w-7xl
           px-6
-          py-14
+          py-12
           text-center
         "
       >
@@ -69,7 +69,7 @@ export default function Footer() {
             once: true,
           }}
           className="
-          mt-10
+          
             text-2xl
             font-bold
             text-white
@@ -184,15 +184,15 @@ export default function Footer() {
 
         {/* Divider */}
 
-        <div className="py-5 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+        <div className="py-5 mt-4 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
         {/* Copyright */}
 
-        <p className="text-sm text-slate-400">
+        <p className="text-sm mt-4 text-slate-400">
           © 2026 Mowly
         </p>
 
-        <p className="mt-2 mb-2 text-sm text-slate-400">
+        <p className="mt-2 text-sm text-slate-400">
           Designed & Developed by{" "}
           <span className="font-semibold text-cyan-300">
             Mowly

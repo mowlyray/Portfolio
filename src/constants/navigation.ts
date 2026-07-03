@@ -21,7 +21,10 @@ export const navigationLinks: NavigationItem[] = [
     label: "Certificates",
     href: "/certificates",
   },
-
+  {
+    label: "Services",
+    href: "/services",
+  },
   {
     label: "Contact",
     href: "/contact",
