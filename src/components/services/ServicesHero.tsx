@@ -1,121 +1,225 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 export default function ServicesHero() {
   return (
     <section className="relative overflow-hidden py-20">
 
-      {/* Background Glow */}
+      {/* Left Glow */}
       <div
         className="
           absolute
-          left-1/2
-          top-1/2
-          h-[500px]
-          w-[500px]
-          -translate-x-1/2
-          -translate-y-1/2
+          -left-40
+          top-0
+          h-[450px]
+          w-[450px]
           rounded-full
           bg-cyan-500/10
-          blur-[160px]
+          blur-[170px]
         "
       />
 
-      <div className="relative mx-auto max-w-4xl text-center mt-20">
+      {/* Right Glow */}
+      <div
+        className="
+          absolute
+          -right-40
+          top-10
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-sky-500/10
+          blur-[170px]
+        "
+      />
+
+      {/* Floating Dots */}
+
+      <motion.div
+        animate={{
+          y: [-10, 10, -10],
+          opacity: [0.4, 1, 0.4],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 4,
+        }}
+        className="
+          absolute
+          left-[12%]
+          top-24
+          h-2
+          w-2
+          rounded-full
+          bg-cyan-400
+          shadow-[0_0_18px_#22d3ee]
+        "
+      />
+
+      <motion.div
+        animate={{
+          y: [10, -15, 10],
+          opacity: [0.3, 1, 0.3],
+        }}
+        transition={{
+          repeat: Infinity,
+          duration: 5,
+        }}
+        className="
+          absolute
+          right-[15%]
+          top-40
+          h-2
+          w-2
+          rounded-full
+          bg-cyan-400
+          shadow-[0_0_18px_#22d3ee]
+        "
+      />
+
+      <div className="relative mx-auto max-w-5xl text-center">
 
         {/* Badge */}
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="
             inline-flex
             items-center
+            gap-2
             rounded-full
             border
             border-cyan-400/20
-            bg-cyan-500/10
+            bg-cyan-500/5
             px-5
             py-2
+            mt-10
             text-sm
-            font-medium
+            tracking-[0.2em]
+            uppercase
             text-cyan-300
             backdrop-blur-xl
           "
         >
-          ✨ Professional Web Development Services
+          <Sparkles size={14} />
+
+          What I Do
         </motion.div>
 
         {/* Heading */}
+
         <motion.h1
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: .2 }}
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            delay: .2,
+          }}
           className="
             mt-8
             text-5xl
             font-black
             leading-tight
-            text-white
-            md:text-6xl
+            md:text-3xl
           "
         >
-          Building Modern
-          <br />
+          <span className="text-white">
+            My
+          </span>{" "}
 
           <span
             className="
-              bg-gradient-to-r
-              from-sky-300
-              via-cyan-300
-              to-blue-500
-              bg-clip-text
-              text-transparent
+              
+              text-cyan-300
+              
             "
           >
-            Digital Experiences
+            Services
           </span>
         </motion.h1>
 
-        {/* Description */}
+        {/* Subtitle */}
+
         <motion.p
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: .35 }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: .35,
+          }}
+          viewport={{
+            once: true,
+          }}
           className="
             mx-auto
-            mt-8
-            max-w-3xl
+            mt-7
+            max-w-2xl
             text-lg
             leading-8
             text-slate-400
           "
         >
-          I build fast, scalable and visually polished web applications
-          using React, Next.js, TypeScript and the MERN stack.
-          From beautiful landing pages to complete full-stack solutions,
-          every project is crafted with performance and user experience
-          in mind.
+          I build modern, fast and scalable web solutions
+          that help businesses grow and users love.
         </motion.p>
 
-        {/* Bottom Glow Line */}
+        {/* Divider */}
+
         <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: 120 }}
+          initial={{
+            opacity: 0,
+            scaleX: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+            scaleX: 1,
+          }}
           transition={{
             delay: .5,
-            duration: .7,
+          }}
+          viewport={{
+            once: true,
           }}
           className="
             mx-auto
             mt-10
-            h-[4px]
-            rounded-full
-            bg-cyan-400
-            shadow-[0_0_25px_rgba(34,211,238,.9)]
+            flex
+            items-center
+            justify-center
+            gap-3
           "
-        />
+        >
+          <div className="h-px w-20 bg-cyan-400/70" />
+
+          <div
+            className="
+              h-3
+              w-3
+              rotate-45
+              bg-cyan-400
+              shadow-[0_0_20px_#22d3ee]
+            "
+          />
+
+          <div className="h-px w-20 bg-cyan-400/70" />
+        </motion.div>
 
       </div>
     </section>
