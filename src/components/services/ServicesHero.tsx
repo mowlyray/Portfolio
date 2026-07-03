@@ -22,7 +22,7 @@ export default function ServicesHero() {
         "
       />
 
-      <div className="relative mx-auto max-w-4xl text-center">
+      <div className="relative mx-auto max-w-4xl text-center mt-20">
 
         {/* Badge */}
         <motion.div

@@ -48,7 +48,6 @@ export default function CertificateHero() {
             bg-cyan-500/10
             px-5
             py-2
-            mt-20
             text-xs
             font-semibold
             uppercase

@@ -3,7 +3,7 @@ import CertificateGrid from "@/components/certificates/CertificateGrid";
 
 export default function CertificatesPage() {
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-32 mt-16">
+    <main className="mx-auto max-w-6xl px-6 pb-24 pt-32">
 
       <CertificateHero />
 
