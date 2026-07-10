@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface AnimatedBorderButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends HTMLMotionProps<"button"> {
   children: React.ReactNode;
 }
 
@@ -18,7 +18,7 @@ export default function AnimatedBorderButton({
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.98 }}
       className={cn(
-        "cursor-pointer relative inline-flex overflow-hidden rounded-full p-[4px]",
+        "group relative inline-flex cursor-pointer overflow-hidden rounded-full p-[4px]",
         className
       )}
       {...props}
@@ -31,47 +31,43 @@ export default function AnimatedBorderButton({
           repeat: Infinity,
           ease: "linear",
         }}
-        className=" absolute inset-[-120%] bg-conic from-violet-500 via-cyan-400 to-violet-500"
+        className="
+          absolute
+          inset-[-120%]
+          bg-conic
+          from-violet-500
+          via-cyan-400
+          to-violet-500
+        "
       />
 
       {/* Content */}
       <span
-  className="
-    relative
-    z-10
-    flex
-    items-center
-    justify-center
-    rounded-full
-
-    bg-gradient-to-b
-    from-white/10
-    via-white/5
-    to-transparent
-
-    dark:from-white/8
-    dark:via-white/5
-    dark:to-black/30
-
-    backdrop-blur-xl
-
-    px-10
-    py-1.5
-
-    font-semibold
-    text-white
-
-    border
-    border-white/10
-
-    transition-all
-    duration-300
-
-    group-hover:border-cyan-400/40
-  "
->
-  {children}
-</span>
+        className="
+          relative
+          z-10
+          flex
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-white/10
+          bg-gradient-to-b
+          from-white/10
+          via-white/5
+          to-transparent
+          px-10
+          py-1.5
+          font-semibold
+          text-white
+          backdrop-blur-xl
+          transition-all
+          duration-300
+          group-hover:border-cyan-400/40
+        "
+      >
+        {children}
+      </span>
     </motion.button>
   );
 }

@@ -12,7 +12,6 @@ export const certificates: Certificate[] = [
 
     issueDate: "2025",
 
-    credential: "https://www.coursera.org/account/accomplishments/verify/LKGJTF6WXBG7",
   },
 
   {
@@ -52,6 +51,5 @@ export const certificates: Certificate[] = [
 
     issueDate: "2024",
 
-    credential: "#",
   },
 ];
