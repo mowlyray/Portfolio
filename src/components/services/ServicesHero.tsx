@@ -97,7 +97,6 @@ export default function ServicesHero() {
             bg-cyan-500/5
             px-5
             py-2
-            mt-10
             text-sm
             tracking-[0.2em]
             uppercase
@@ -132,7 +131,7 @@ export default function ServicesHero() {
             text-5xl
             font-black
             leading-tight
-            md:text-3xl
+            md:text-5xl
           "
         >
           <span className="text-white">
