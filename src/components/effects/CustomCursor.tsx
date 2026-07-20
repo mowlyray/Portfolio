@@ -1,21 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
-
-  const x = useSpring(mouseX, {
-    stiffness: 600,
-    damping: 35,
-  });
-
-  const y = useSpring(mouseY, {
-    stiffness: 600,
-    damping: 35,
-  });
 
   const [hovering, setHovering] = useState(false);
 
@@ -31,7 +21,7 @@ export default function CustomCursor() {
     window.addEventListener("mousemove", move);
 
     const targets = document.querySelectorAll(
-      "button,a,[data-cursor]"
+      "button,a,input,textarea,[data-cursor]"
     );
 
     targets.forEach((el) => {
@@ -47,27 +37,26 @@ export default function CustomCursor() {
         el.removeEventListener("mouseleave", leave);
       });
     };
-  }, [mouseX, mouseY]);
+  }, []);
 
   return (
     <>
       {/* Cursor Ring */}
       <motion.div
         style={{
-          x,
-          y,
+          x: mouseX,
+          y: mouseY,
           translateX: "-50%",
           translateY: "-50%",
         }}
         animate={{
-          width: hovering ? 50 : 28,
-          height: hovering ? 50 : 28,
-          
+          width: hovering ? 48 : 28,
+          height: hovering ? 48 : 28,
         }}
         transition={{
           type: "spring",
-          stiffness: 350,
-          damping: 20,
+          stiffness: 700,
+          damping: 35,
         }}
         className={`
           pointer-events-none
@@ -78,18 +67,10 @@ export default function CustomCursor() {
           rounded-full
           border-2
           bg-transparent
-          transition-all
-          duration-300
           ${
             hovering
-              ? `
-                border-white
-                shadow-[0_0_30px_rgba(255,255,255,.85)]
-              `
-              : `
-                border-sky-400
-                shadow-[0_0_18px_rgba(56,189,248,.55)]
-              `
+              ? "border-white shadow-[0_0_35px_rgba(255,255,255,.8)]"
+              : "border-sky-400 shadow-[0_0_20px_rgba(56,189,248,.65)]"
           }
         `}
       />
@@ -97,17 +78,18 @@ export default function CustomCursor() {
       {/* Center Dot */}
       <motion.div
         style={{
-          x,
-          y,
+          x: mouseX,
+          y: mouseY,
           translateX: "-50%",
           translateY: "-50%",
         }}
         animate={{
-          scale: hovering ? 1.3 : 1,
+          scale: hovering ? 1.35 : 1,
         }}
         transition={{
           type: "spring",
-          stiffness: 400,
+          stiffness: 700,
+          damping: 30,
         }}
         className="
           pointer-events-none

@@ -8,15 +8,15 @@ export default function MouseGlow() {
   const mouseY = useMotionValue(-500);
 
   const x = useSpring(mouseX, {
-    stiffness: 140,
-    damping: 22,
-    mass: 0.5,
+    stiffness: 220,
+    damping: 30,
+    mass: 0.35,
   });
 
   const y = useSpring(mouseY, {
-    stiffness: 140,
-    damping: 22,
-    mass: 0.5,
+    stiffness: 220,
+    damping: 30,
+    mass: 0.35,
   });
 
   const [hovering, setHovering] = useState(false);
@@ -49,11 +49,11 @@ export default function MouseGlow() {
           el.removeEventListener("mouseleave", leave);
         });
     };
-  }, [mouseX, mouseY]);
+  }, []);
 
   return (
     <>
-      {/* Main Spotlight */}
+      {/* Main Glow */}
       <motion.div
         style={{
           x,
@@ -62,26 +62,25 @@ export default function MouseGlow() {
           translateY: "-50%",
         }}
         animate={{
-          scale: hovering ? 1.8 : 1.3,
-          opacity: hovering ? 0.45 : 0.28,
+          scale: hovering ? 1.7 : 1.25,
+          opacity: hovering ? 0.42 : 0.26,
         }}
         transition={{
-          duration: 0.3,
+          duration: 0.25,
         }}
         className="
-        pointer-events-none
-        fixed
-        inset-0
-        z-[999]
-        h-[420px]
-        w-[420px]
-        rounded-full
-        bg-sky-400/40
-        blur-[140px]
+          pointer-events-none
+          fixed
+          z-[999]
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-sky-400/40
+          blur-[140px]
         "
       />
 
-      {/* Cyan Layer */}
+      {/* Cyan Glow */}
       <motion.div
         style={{
           x,
@@ -90,24 +89,24 @@ export default function MouseGlow() {
           translateY: "-50%",
         }}
         animate={{
-          scale: hovering ? 1.3 : 1,
+          scale: hovering ? 1.25 : 1,
         }}
         transition={{
-          duration: 0.35,
+          duration: 0.25,
         }}
         className="
-        pointer-events-none
-        fixed
-        z-[998]
-        h-[250px]
-        w-[250px]
-        rounded-full
-        bg-cyan-400/30
-        blur-[90px]
+          pointer-events-none
+          fixed
+          z-[998]
+          h-[240px]
+          w-[240px]
+          rounded-full
+          bg-cyan-400/30
+          blur-[90px]
         "
       />
 
-      {/* Tiny White Core */}
+      {/* White Core */}
       <motion.div
         style={{
           x,
@@ -116,14 +115,14 @@ export default function MouseGlow() {
           translateY: "-50%",
         }}
         className="
-        pointer-events-none
-        fixed
-        z-[997]
-        h-20
-        w-20
-        rounded-full
-        bg-white/40
-        blur-3xl
+          pointer-events-none
+          fixed
+          z-[997]
+          h-20
+          w-20
+          rounded-full
+          bg-white/35
+          blur-3xl
         "
       />
     </>
