@@ -69,8 +69,8 @@ export default function CustomCursor() {
           bg-transparent
           ${
             hovering
-              ? "border-white shadow-[0_0_35px_rgba(255,255,255,.8)]"
-              : "border-sky-400 shadow-[0_0_20px_rgba(56,189,248,.65)]"
+              ? "border-white shadow-[0_0_10px_rgba(255,255,255,.35)]"
+              : "border-sky-400 shadow-[0_0_8px_rgba(56,189,248,.3)]"
           }
         `}
       />
@@ -101,7 +101,7 @@ export default function CustomCursor() {
           w-2.5
           rounded-full
           bg-sky-400
-          shadow-[0_0_18px_rgba(56,189,248,.9)]
+          shadow-[0_0_6px_rgba(56,189,248,.5)]
         "
       />
     </>

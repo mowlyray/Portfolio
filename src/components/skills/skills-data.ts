@@ -1,7 +1,9 @@
+import { Code2, Server, Braces, Wrench } from "lucide-react";
+
 export const skillCategories = [
   {
     title: "Frontend",
-    icon: "💻",
+    icon: Code2,
     skills: [
       "React",
       "Next.js",
@@ -14,7 +16,7 @@ export const skillCategories = [
   },
   {
     title: "Backend",
-    icon: "⚙️",
+    icon: Server,
     skills: [
       "Node.js",
       "Express.js",
@@ -26,7 +28,7 @@ export const skillCategories = [
   },
   {
     title: "Programming Languages",
-    icon: "🧠",
+    icon: Braces,
     skills: [
       "JavaScript",
       "TypeScript",
@@ -38,7 +40,7 @@ export const skillCategories = [
   },
   {
     title: "Tools",
-    icon: "🛠️",
+    icon: Wrench,
     skills: [
       "Git",
       "GitHub",

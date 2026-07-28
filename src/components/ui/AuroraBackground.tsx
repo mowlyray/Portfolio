@@ -13,13 +13,9 @@ export default function AuroraBackground({
   className,
 }: AuroraBackgroundProps) {
   return (
-    <div
-      className={cn(
-        "relative min-h-screen overflow-hidden bg-[#07131F]",
-        className
-      )}
-    >
-      {/* Aurora 1 */}
+    <div className={cn("relative min-h-screen bg-[#07131F]", className)}>
+      <div className="fixed inset-0 -z-10 overflow-hidden bg-[#07131F]">
+        {/* Aurora 1 */}
       <motion.div
         animate={{
           x: [0, 180, -100, 0],
@@ -174,14 +170,15 @@ export default function AuroraBackground({
         "
       />
 
-      {/* Vignette */}
-      <div
-        className="
-        absolute
-        inset-0
-        bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,.55))]
-        "
-      />
+        {/* Vignette */}
+        <div
+          className="
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,.55))]
+          "
+        />
+      </div>
 
       <div className="relative z-10">{children}</div>
     </div>

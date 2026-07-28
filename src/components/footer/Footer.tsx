@@ -75,7 +75,7 @@ export default function Footer() {
             text-white
           "
         >
-          Thanks for Visiting 👋
+          Thanks for Visiting
         </motion.h3>
 
         {/* Glow Line */}

@@ -29,7 +29,7 @@ export default function Hero() {
             backdrop-blur-xl
           "
         >
-          👋 Welcome to my Portfolio
+          Welcome to my Portfolio
         </motion.span>
 
         {/* Name */}

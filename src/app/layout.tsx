@@ -61,7 +61,7 @@ export default function RootLayout({
       suppressHydrationWarning
       // className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+      <body className="min-h-screen font-sans text-foreground antialiased">
         <Providers>
           <ScrollToTop />
           <AuroraBackground>

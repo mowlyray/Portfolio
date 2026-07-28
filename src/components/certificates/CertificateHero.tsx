@@ -55,7 +55,7 @@ export default function CertificateHero() {
             text-cyan-300
           "
         >
-          🏆 Certificates
+          Certificates
         </span>
 
         {/* Heading */}

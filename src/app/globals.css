@@ -126,11 +126,15 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #07131f;
+    overscroll-behavior-y: none;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-foreground font-sans antialiased;
+    background-color: #07131f;
     min-height: 100vh;
+    overscroll-behavior-y: none;
     text-rendering: optimizeLegibility;
   }
 

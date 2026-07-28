@@ -118,10 +118,9 @@ export default function Skills() {
                     justify-center
                     rounded-full
                     bg-cyan-500/10
-                    text-2xl
                   "
                 >
-                  {category.icon}
+                  <category.icon className="h-6 w-6 text-cyan-300" />
                 </div>
 
                 <h3

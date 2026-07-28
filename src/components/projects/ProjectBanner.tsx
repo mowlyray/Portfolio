@@ -65,7 +65,7 @@ export default function ProjectBanner({
         text-cyan-300
       "
     >
-      ⭐ Featured Project
+      Featured Project
     </span>
   )}
 
