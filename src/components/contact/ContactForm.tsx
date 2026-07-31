@@ -22,6 +22,7 @@ export default function ContactForm() {
       email: formData.get("email"),
       subject: formData.get("subject"),
       message: formData.get("message"),
+      company: formData.get("company"),
     };
 
     try {
@@ -44,8 +45,10 @@ export default function ContactForm() {
       toast.success("Message sent successfully!");
 
       form.reset();
-    } catch (error: any) {
-      toast.error(error.message || "Failed to send message.");
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Failed to send message.";
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -93,9 +96,19 @@ export default function ContactForm() {
       </h2>
 
       <p className="mt-4 leading-8 text-slate-400">
-        Have a question or an opportunity? Fill out the form below and I'll
+        Have a question or an opportunity? Fill out the form below and I&apos;ll
         get back to you as soon as possible.
       </p>
+
+      {/* Honeypot field: hidden from real users, catches simple bots */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
 
       {/* Name */}
       <div className="mt-10">

@@ -44,7 +44,7 @@ export default function Hero() {
             md:text-7xl
           "
         >
-          Hi, I'm{" "}
+          Hi, I&apos;m{" "}
           <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
             Mowly
           </span>

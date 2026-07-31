@@ -2,14 +2,18 @@
 
 import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePointerEffectsEnabled } from "@/lib/use-pointer-effects-enabled";
 
 export default function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
   const [hovering, setHovering] = useState(false);
+  const enabled = usePointerEffectsEnabled();
 
   useEffect(() => {
+    if (!enabled) return;
+
     const move = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -37,7 +41,9 @@ export default function CustomCursor() {
         el.removeEventListener("mouseleave", leave);
       });
     };
-  }, []);
+  }, [enabled, mouseX, mouseY]);
+
+  if (!enabled) return null;
 
   return (
     <>
@@ -67,11 +73,7 @@ export default function CustomCursor() {
           rounded-full
           border-2
           bg-transparent
-          ${
-            hovering
-              ? "border-white shadow-[0_0_10px_rgba(255,255,255,.35)]"
-              : "border-sky-400 shadow-[0_0_8px_rgba(56,189,248,.3)]"
-          }
+          ${hovering ? "border-white" : "border-sky-400"}
         `}
       />
 
@@ -101,7 +103,6 @@ export default function CustomCursor() {
           w-2.5
           rounded-full
           bg-sky-400
-          shadow-[0_0_6px_rgba(56,189,248,.5)]
         "
       />
     </>

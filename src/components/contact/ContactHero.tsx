@@ -70,9 +70,9 @@ export default function ContactHero() {
           text-slate-400
         "
       >
-        I'm currently open to Junior Software Engineering
+        I&apos;m currently open to Junior Software Engineering
         opportunities, internships and exciting collaborations.
-        Feel free to reach out if you'd like to work together
+        Feel free to reach out if you&apos;d like to work together
         or simply connect.
       </motion.p>
 

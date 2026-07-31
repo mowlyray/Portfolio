@@ -114,7 +114,7 @@ export default function Footer() {
             leading-7
           "
         >
-          Let's build something amazing together.
+          Let&apos;s build something amazing together.
         </p>
 
         {/* Social Icons */}

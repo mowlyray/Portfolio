@@ -1,5 +1,11 @@
 import Skills from "@/components/skills/Skills";
 
+export const metadata = {
+  title: "Skills",
+  description:
+    "Technologies, frameworks, and tools Mowly uses to build modern, scalable, full-stack web applications.",
+};
+
 export default function SkillsPage() {
   return (
     <main className="min-h-screen bg-slate-950 pt-28 pb-24">

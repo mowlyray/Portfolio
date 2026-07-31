@@ -16,6 +16,8 @@ export default function MobileMenu() {
       {/* Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
         className="
           lg:hidden
           relative
@@ -139,8 +141,9 @@ export default function MobileMenu() {
               <div className="mt-auto flex items-center gap-4 pt-10">
 
                 <Link
-                  href="https://github.com/YOUR_GITHUB_USERNAME"
+                  href="https://github.com/mowlyray"
                   target="_blank"
+                  aria-label="GitHub"
                   className="
                     flex
                     h-11
@@ -162,8 +165,9 @@ export default function MobileMenu() {
                 </Link>
 
                 <Link
-                  href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME"
+                  href="https://www.linkedin.com/in/mowlyray/"
                   target="_blank"
+                  aria-label="LinkedIn"
                   className="
                     flex
                     h-11

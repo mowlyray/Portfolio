@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(taskkill //PID 41404 //F)",
-      "Bash(jobs -l)"
+      "Bash(jobs -l)",
+      "Bash(curl -sf http://localhost:3000)",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(timeout 20 bash -c 'until curl -sf http://localhost:3001 >/dev/null; do sleep 1; done')",
+      "Bash(netstat -ano)",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"name\":\"Bot\",\"email\":\"bot@example.com\",\"subject\":\"spam\",\"message\":\"spam message\",\"company\":\"Acme Corp\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP_STATUS:%{http_code}\\\\n\" -X POST http://localhost:3000/api/contact -H \"Content-Type: application/json\" -d '{\"name\":\"Test User\",\"email\":\"real-test@example.com\",\"subject\":\"Hello\",\"message\":\"This is a real test message\"}')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/this-route-does-not-exist)",
+      "Bash(npx playwright *)"
     ]
   }
 }

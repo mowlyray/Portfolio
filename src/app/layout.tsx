@@ -3,15 +3,16 @@ import type { Metadata } from "next";
 import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
+import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
 
 import { Providers } from "@/components/providers";
 
 import Navbar from "@/components/layout/Navbar";
 import AuroraBackground from "@/components/ui/AuroraBackground";
-import MouseGlow from "@/components/effects/MouseGlow";
 import CustomCursor from "@/components/effects/CustomCursor";
 import Footer from "@/components/footer/Footer";
+import { siteUrl } from "@/lib/site-config";
 
 
 // const geistSans = Geist({
@@ -24,14 +25,19 @@ import Footer from "@/components/footer/Footer";
 //   subsets: ["latin"],
 // });
 
+const siteTitle = "Mowly | MERN Stack Developer";
+const siteDescription =
+  "Personal portfolio of a MERN Stack & Next.js Developer showcasing projects, skills, certificates, and professional experience.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+
   title: {
-    default: "Mowly | MERN Stack Developer",
+    default: siteTitle,
     template: "%s | Mowly",
   },
 
-  description:
-    "Personal portfolio of a MERN Stack & Next.js Developer showcasing projects, skills, certificates, and professional experience.",
+  description: siteDescription,
 
   keywords: [
     "MERN Stack",
@@ -48,6 +54,20 @@ export const metadata: Metadata = {
       name: "Mowly",
     },
   ],
+
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Mowly",
+    title: siteTitle,
+    description: siteDescription,
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
@@ -63,9 +83,9 @@ export default function RootLayout({
     >
       <body className="min-h-screen font-sans text-foreground antialiased">
         <Providers>
+          <NextTopLoader color="#22d3ee" showSpinner={false} height={3} />
           <ScrollToTop />
           <AuroraBackground>
-            <MouseGlow />
             <CustomCursor />
             <Navbar />
 

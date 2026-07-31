@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-import type { Project } from "./types";
+import type { Project, Technology } from "./types";
 
 interface ProjectCardProps {
   project: Project;
@@ -56,21 +56,15 @@ export default function ProjectCard({
           {project.shortDescription}
         </p>
 
-        {/* Technologies (FIXED) */}
         <div className="mt-6 flex flex-wrap gap-2">
-          {project.technologies.slice(0, 4).map((tech: any, i: number) => {
-            const label = typeof tech === "string" ? tech : tech?.name;
-            const key = typeof tech === "string" ? tech : tech?.id ?? i;
-
-            return (
-              <span
-                key={key}
-                className="rounded-full border border-cyan-400/20 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-300"
-              >
-                {label}
-              </span>
-            );
-          })}
+          {project.technologies.slice(0, 4).map((tech: Technology) => (
+            <span
+              key={tech.name}
+              className="rounded-full border border-cyan-400/20 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-300"
+            >
+              {tech.name}
+            </span>
+          ))}
         </div>
 
         {/* Button */}

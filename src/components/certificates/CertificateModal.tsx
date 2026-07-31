@@ -94,6 +94,7 @@ export default function CertificateModal({
 
             <button
               onClick={onClose}
+              aria-label="Close certificate preview"
               className="
                 absolute
                 right-5

@@ -8,7 +8,6 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import {
   FaGithub,
   FaLinkedin,
-  FaFacebook,
 } from "react-icons/fa";
 
 import { contactInfo } from "./contact-data";
@@ -159,6 +158,7 @@ export default function ContactInfo() {
           <Link
             href={contactInfo.socials.github}
             target="_blank"
+            aria-label="GitHub"
             className="
               flex
               h-14
@@ -182,6 +182,7 @@ export default function ContactInfo() {
           <Link
             href={contactInfo.socials.linkedin}
             target="_blank"
+            aria-label="LinkedIn"
             className="
               flex
               h-14
